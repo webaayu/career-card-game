@@ -1,7 +1,7 @@
-run `jobcard-generator.py` file to create `/jobcards/*.md`  (* jobdescription)
+1. Run `jobcard-generator.py` file to create `/jobcards/*.md`  (* jobdescription)
 
-run `jobcard-qa-generator.py` file to create `jobcards.db` file that contains database table (job,question,answer)
+2. Run `jobcard-qa-generator.py` file to create `jobcards.db` file that contains database table (job,question,answer)
 
-run app.py
+3. Run app.py
 
-templates folder contains `page1.html`, `page2.html`,`page3.html`
+4. The templates folder contains `page1.html`, `page2.html`,`page3.html`
