@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Card Game - Job Cards</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .proceed-button {
+    margin-top: 40px; /* Adjust this value as needed */
+    }
+
+    .job-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 320px;
+      height: 450px;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .job-card:hover {
+      transform: scale(1.05);
+    }
+
+    .job-card h2 {
+      margin-top: 0;
+      color: #444;
+      font-size: 22px;
+    }
+
+    .job-card p {
+      color: #666;
+      font-size: 16px;
+      flex-grow: 1;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Job Card Descriptions</h1>
+
+    <div class="job-container">
+      {% for job, description in job_cards.items() %}
+        <div class="job-card">
+          <h2>{{ job }}</h2>
+          <p>{{ description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <button class="proceed-button" onclick="window.location.href='/page3'">Proceed to Level 1</button>
+</div>
+</body>
+</html>
