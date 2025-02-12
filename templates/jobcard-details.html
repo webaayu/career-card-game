@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobcard Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="jobcard-container">
+        <h1>{{ card['CareerCard']['Title'] }}</h1>
+        <h3>Overview</h3>
+        <p>{{ card['CareerCard']['Overview'] }}</p>
+
+        <h3>Pros & Cons</h3>
+        <ul>
+            <li><strong>Pros:</strong> {{ card['CareerCard']['Pros'] }}</li>
+            <li><strong>Cons:</strong> {{ card['CareerCard']['Cons'] }}</li>
+        </ul>
+
+        <h3>Dual Impact Highlights</h3>
+        <p>{{ card['CareerCard']['DualImpactHighlights'] }}</p>
+
+    </div>
+</body>
+</html>
