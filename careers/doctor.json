@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "Doctor",
+        "Enabled": 1,
+        "Overview": "Doctors are medical professionals responsible for diagnosing and treating illnesses and injuries. They conduct examinations, prescribe medications, and provide preventive care to ensure the health and well-being of their patients. Their role is crucial not only for individual health but also for the public health of communities at large.",
+        "Pros & Cons": {
+            "Pros": [
+                "High earning potential.",
+                "Ability to make a significant difference in patients' lives.",
+                "Continuous learning and professional development.",
+                "Strong job security due to the ongoing need for medical professionals."
+            ],
+            "Cons": [
+                "Long and rigorous education and training requirements.",
+                "High levels of stress and responsibility.",
+                "Irregular hours and long shifts.",
+                "Emotional toll from dealing with illness and loss."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "Working as a doctor fosters personal growth through the development of empathy, problem-solving skills, and the ability to handle high-pressure situations. It also provides a sense of accomplishment and fulfillment from helping others.",
+            "Community Impact": "Doctors play a vital role in communities by improving public health outcomes, contributing to health education, and participating in public health initiatives. Their work helps reduce the burden of disease and enhance the quality of life for community members."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "An entry-level doctor faces their first day in a busy outpatient clinic, managing a full schedule of patients with various conditions.",
+            "DecisionCards": [
+                {
+                    "Option A": "Take the time to thoroughly review each patient's history before appointments.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Knowledge gained through preparation.",
+                        "CommunityImpact": "+Greater accuracy in diagnosis and treatment."
+                    }
+                },
+                {
+                    "Option B": "Quickly move from one patient to the next to keep up with the schedule.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Time management skills improved.",
+                        "CommunityImpact": "+Increased number of patients seen, potentially leading to faster care."
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As a more experienced doctor, the challenge arises to lead a team in a critical care situation involving multiple emergency cases.",
+            "DecisionCards": [
+                {
+                    "Option A": "Delegate responsibilities to team members based on their strengths.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Demonstrated leadership and collaboration skills.",
+                        "CommunityImpact": "+Improved efficiency in patient care during critical moments."
+                    }
+                },
+                {
+                    "Option B": "Attempt to manage all cases personally to ensure quality of care.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Sense of control and thoroughness.",
+                        "CommunityImpact": "+Potential for not managing time effectively, risking delays in care."
+                    }
+                }
+            ]
+        }
+    ]
+}
