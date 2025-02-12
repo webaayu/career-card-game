@@ -1,104 +1,110 @@
-from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import os
-import sqlite3
-import markdown
+import json
+import random
+from flask import Flask, render_template, request, session, jsonify, redirect, url_for
+from flask_session import Session
 
 app = Flask(__name__)
-app.secret_key = "devkey"  # required for session management
 
-# -------------------------------
-# Helper function to read a game card from .MD file
-# -------------------------------
-def get_job_card(job):
-    filename = os.path.join("jobcards", f"{job.replace(' ', '_').lower()}.MD")
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            return f.read()
-    except FileNotFoundError:
-       return f"Game card not found for {job}."
-        
-# -------------------------------
-# Helper function to get a connection to the SQLite3 database
-# -------------------------------
-def get_db_connection():
-    conn = sqlite3.connect("jobcards.db")
-    conn.row_factory = sqlite3.Row
-    return conn
+# 🔹 Configure Flask-Session to store session data in the filesystem
+app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_PERMANENT"] = True  # Keep session active even after browser restart
+app.config["SECRET_KEY"] = "supersecretkey"  # Change for production
+Session(app)
 
-# -------------------------------
-# Page 1: Spin Wheel for Job Cards
-# -------------------------------
-@app.route('/')
+# 📂 Load all JSON career cards from the "careers" folder
+def load_career_cards():
+    career_cards = []
+    careers_dir = os.path.join(os.path.dirname(__file__), 'careers')
+
+    for filename in os.listdir(careers_dir):
+        if filename.endswith('.json'):
+            filepath = os.path.join(careers_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                career_cards.append(data)
+    
+    return career_cards
+
+# 🔹 Return only enabled career cards
+def get_enabled_career_cards():
+    all_cards = load_career_cards()
+    return [card for card in all_cards if card.get("CareerCard", {}).get("Enabled", 0) == 1]
+
+# 🏠 Home route: Displays job titles on the spin wheel
+@app.route("/")
 def index():
-    session['selected_jobs'] = []
-    session['current_player'] = 1
-    session['total_players'] = 2
-    return render_template('page1.html')
+    enabled_cards = get_enabled_career_cards()
+    job_titles = [card["CareerCard"]["Title"] for card in enabled_cards]
 
-@app.route('/set_job', methods=['POST'])
-def set_job():
-    job = request.json.get('job')
-    if not job:
-        return jsonify(error="No job provided"), 400
+    # Store enabled cards in session
+    session["enabled_cards"] = json.dumps(enabled_cards)
+    session.pop("selected_card", None)  # Reset previous selection
+    session.modified = True  # Ensure session updates are saved
 
-    # Append the selected job to our session list
-    selected_jobs = session.get('selected_jobs', [])
-    selected_jobs.append(job)
-    session['selected_jobs'] = selected_jobs
+    return render_template("index.html", jobs=job_titles)
 
-    # Increase the current player count
-    session['current_player'] = session.get('current_player', 1) + 1
+# 🎡 Spin the wheel and select a random job
+@app.route("/spin", methods=["POST"])
+def spin():
+    session.permanent = True  # Ensure session persists
+    enabled_cards_json = session.get("enabled_cards", "[]")
+    enabled_cards = json.loads(enabled_cards_json)
 
-    # If both players have selected a job, inform the client
-    if session['current_player'] > session.get('total_players', 2):
-        return jsonify({'selection_complete': True})
-    else:
-        return jsonify({'current_player': session['current_player']})
+    if not enabled_cards:
+        return jsonify({"error": "No enabled career cards available."}), 400
 
+    selected_card = random.choice(enabled_cards)
+    session["selected_card"] = json.dumps(selected_card)  # Store selection in session
+    session.modified = True  # Save session
 
-# -------------------------------
-# Page 2: Display Job Card Details (Using .MD files)
-# -------------------------------
+    print(f"🔹 Job selected: {selected_card['CareerCard']['Title']}")
 
-@app.route('/page2')
-def page2():
-    selected_jobs = session.get('selected_jobs', [])
-    job_cards = {}
-    for job in selected_jobs:
-        job_cards[job] = get_job_card(job)
-    return render_template('page2.html', job_cards=job_cards)
+    return jsonify({"job": selected_card["CareerCard"]["Title"]})
 
-# -------------------------------
-# Page 3: Level 1 – Job & Question Selection (Using SQLite3)
-# -------------------------------
+# 🔹 Store the selected job in session from JavaScript
+@app.route("/set_selected_job", methods=["POST"])
+def set_selected_job():
+    data = request.json
+    selected_job = data.get("job")
 
-@app.route('/page3')
-def page3():
-    selected_jobs = session.get('selected_jobs', [])
-    jobs = [{"job": job} for job in selected_jobs]
-    return render_template('page3.html', jobs=jobs)
+    if not selected_job:
+        return jsonify({"status": "error", "message": "No job selected"}), 400
 
+    # Find the full job card details from session
+    enabled_cards_json = session.get("enabled_cards", "[]")
+    enabled_cards = json.loads(enabled_cards_json)
+    selected_card = next((card for card in enabled_cards if card["CareerCard"]["Title"] == selected_job), None)
 
-@app.route('/get_questions', methods=['GET'])
-def get_questions():
-    job = request.args.get('job')
-    conn = get_db_connection()
-    questions = conn.execute("SELECT question FROM questions WHERE job = ?", (job,)).fetchall()
-    conn.close()
-    question_list = [row["question"] for row in questions]
-    return jsonify(question_list)
+    if not selected_card:
+        return jsonify({"status": "error", "message": "Job not found"}), 404
 
-@app.route('/get_answer', methods=['GET'])
-def get_answer():
-    job = request.args.get('job')
-    question = request.args.get('question')
-    conn = get_db_connection()
-    row = conn.execute("SELECT answer FROM questions WHERE job = ? AND question = ?", (job, question)).fetchone()
-    conn.close()
-    if row:
-        return jsonify(answer=row["answer"])
-    else:
-        return jsonify(answer="No answer found.")
+    session["selected_card"] = json.dumps(selected_card)  # Store full card details
+    session.modified = True
 
-if __name__ == '__main__':
+    print(f"🔹 Stored job in session: {selected_job}")
+
+    return jsonify({"status": "success"})
+
+# 📄 Display selected job card details
+@app.route("/jobcard")
+def jobcard():
+    selected_card_json = session.get("selected_card")
+
+    if not selected_card_json:
+        print("⚠️ No selected job card in session! Redirecting to index.")
+        return redirect(url_for("index"))  # Redirect to homepage
+
+    try:
+        selected_card = json.loads(selected_card_json)
+    except json.JSONDecodeError:
+        print("⚠️ JSON Decode Error! Redirecting to index.")
+        return redirect(url_for("index"))
+
+    print(f"✅ Showing job card: {selected_card['CareerCard']['Title']}")
+
+    return render_template("jobcard-details.html", card=selected_card)
+
+# 🚀 Run Flask App
+if __name__ == "__main__":
     app.run(debug=True)
