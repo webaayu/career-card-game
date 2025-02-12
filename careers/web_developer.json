@@ -1,6 +1,7 @@
 {
     "CareerCard": {
         "Title": "Web Developer",
+        "Enabled": 1,
         "Overview": "A Web Developer is responsible for designing and maintaining websites and web applications. They work with programming languages such as HTML, CSS, and JavaScript to create user-friendly interfaces and ensure that web applications are functional, responsive, and accessible. The role is significant as it directly impacts user experience and plays a crucial part in how businesses and organizations engage with their customers online.",
         "Pros & Cons": {
             "Pros": [
