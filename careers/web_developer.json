@@ -1,0 +1,68 @@
+{
+    "CareerCard": {
+        "Title": "Web Developer",
+        "Overview": "A Web Developer is responsible for designing and maintaining websites and web applications. They work with programming languages such as HTML, CSS, and JavaScript to create user-friendly interfaces and ensure that web applications are functional, responsive, and accessible. The role is significant as it directly impacts user experience and plays a crucial part in how businesses and organizations engage with their customers online.",
+        "Pros & Cons": {
+            "Pros": [
+                "High demand for web development skills in the job market.",
+                "Potential for remote work and flexible hours.",
+                "Opportunity to work on creative and innovative projects.",
+                "Continuous learning and growth opportunities in technology."
+            ],
+            "Cons": [
+                "Can involve long hours, especially when meeting deadlines.",
+                "Need to stay updated with rapidly changing technologies and frameworks.",
+                "May experience isolated work conditions if working remotely.",
+                "Potentially repetitive tasks, especially in maintenance roles."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "This career fosters personal growth through skill acquisition, creative problem-solving, and the opportunity to work on diverse projects that challenge one's abilities.",
+            "Community Impact": "Web Developers contribute to the community by creating accessible websites and applications that improve digital literacy and access to information, thereby enhancing overall community engagement."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "As an entry-level Web Developer, you are tasked with fixing minor bugs in an existing web application. This challenge helps you learn how to navigate existing codebases and understand user feedback.",
+            "DecisionCards": [
+                {
+                    "Option A": "Collaborate with a senior developer to understand the code and ask for guidance.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Knowledge and skill development",
+                        "CommunityImpact": "+Improved app functionality for users"
+                    }
+                },
+                {
+                    "Option B": "Attempt to fix the bugs independently without asking for help.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Confidence in problem-solving",
+                        "CommunityImpact": "+Minor improvements to user experience"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As your role expands, you are assigned to lead a small team in developing a new web application. This complex challenge requires project management skills alongside technical expertise.",
+            "DecisionCards": [
+                {
+                    "Option A": "Implement Agile methodologies to ensure effective teamwork and project tracking.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Leadership skills gained",
+                        "CommunityImpact": "+More efficient project delivery"
+                    }
+                },
+                {
+                    "Option B": "Assign tasks based solely on personal relationships rather than skills.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Short-term ease in team dynamics",
+                        "CommunityImpact": "+Possible project inefficiencies"
+                    }
+                }
+            ]
+        }
+    ]
+}

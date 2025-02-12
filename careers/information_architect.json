@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "Information Architect",
+        "Enabled": 0,
+        "Overview": "An Information Architect (IA) is responsible for organizing, structuring, and labeling content in an effective and sustainable way. They ensure that users can navigate systems and find the information they need with ease. This role is crucial in creating user-friendly interfaces and improving the overall user experience within digital products.",
+        "Pros & Cons": {
+            "Pros": [
+                "High demand for skills in digital industries.",
+                "Opportunities for creative problem-solving.",
+                "Ability to impact user experience positively.",
+                "Diverse career paths in various sectors."
+            ],
+            "Cons": [
+                "Can be challenging to meet all user expectations.",
+                "Requires continuous learning to keep up with technology changes.",
+                "Often involves balancing conflicting requirements.",
+                "Job can be less hands-on and more theoretical."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "Working as an IA fosters critical thinking and analytical skills, enhancing one\u2019s ability to approach complex problems systematically.",
+            "Community Impact": "An effective IA improves accessibility and usability of information, benefiting a broad audience and contributing to informed communities."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "As a new IA, you are tasked with redesigning the navigation of a small website that has received complaints about its usability.",
+            "DecisionCards": [
+                {
+                    "Option A": "Conduct user interviews to gather feedback before redesigning.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Knowledge of user needs",
+                        "CommunityImpact": "+Increased user satisfaction with the site"
+                    }
+                },
+                {
+                    "Option B": "Redesign the navigation based on your own experience without user input.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Confidence in your design skills",
+                        "CommunityImpact": "+Potential misalignment with user needs"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As you gain experience, you are now leading a project that involves multiple stakeholders with conflicting goals for an enterprise-level application.",
+            "DecisionCards": [
+                {
+                    "Option A": "Facilitate a workshop with stakeholders to align their goals.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Leadership and negotiation skills",
+                        "CommunityImpact": "+Collaborative solutions benefiting users"
+                    }
+                },
+                {
+                    "Option B": "Make decisions based on your own architectural philosophy without input.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Autonomy in decision-making",
+                        "CommunityImpact": "+Risk of creating a disconnect with stakeholder needs"
+                    }
+                }
+            ]
+        }
+    ]
+}

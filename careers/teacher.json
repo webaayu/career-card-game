@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "Teacher",
+        "Enabled": 1,
+        "Overview": "Teachers play a fundamental role in shaping the minds and futures of students. They are responsible for developing lesson plans, delivering educational content, assessing student progress, and creating a supportive learning environment. This role is significant as it not only impacts the academic growth of students but also fosters critical life skills and social development.",
+        "Pros & Cons": {
+            "Pros": [
+                "Opportunity to inspire and influence the next generation.",
+                "Job security in many regions with a demand for educators.",
+                "Ability to pursue lifelong learning and professional development.",
+                "Contributions to community values and social cohesion."
+            ],
+            "Cons": [
+                "Challenges with classroom management and diverse learning needs.",
+                "Generally low salary compared to other professions requiring similar levels of education.",
+                "High levels of stress, especially during exam seasons.",
+                "Significant amounts of time spent outside of teaching hours on planning and grading."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "A career in teaching fosters personal growth through the development of communication, patience, and leadership skills. Teachers learn to navigate challenges and adapt to various situations, ultimately leading to greater resilience and problem-solving abilities.",
+            "Community Impact": "Teachers have a significant impact on the community by promoting education, supporting student development, and advocating for social issues. They often serve as role models and contribute to building a more informed and engaged citizenry."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "As a new teacher, managing a classroom of diverse students who may have varying levels of engagement and understanding can be daunting.",
+            "DecisionCards": [
+                {
+                    "Option A": "Implement a variety of teaching methods to cater to different learning styles.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Improved confidence in teaching abilities",
+                        "CommunityImpact": "+Greater student engagement in lessons"
+                    }
+                },
+                {
+                    "Option B": "Stick with a traditional teaching approach to maintain control over the classroom.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Easier management initially",
+                        "CommunityImpact": "+Limited student participation and creativity"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As a more experienced teacher, you are tasked with mentoring new teachers while handling a larger class size and meeting individual educational needs.",
+            "DecisionCards": [
+                {
+                    "Option A": "Hold regular mentorship sessions and collaborate with new teachers.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Stronger leadership and mentorship skills",
+                        "CommunityImpact": "+Holistic development of new educators benefiting student learning"
+                    }
+                },
+                {
+                    "Option B": "Focus solely on your own class without engaging in mentorship.",
+                    "Outcomes": {
+                        "PersonalImpact": "+Less workload for you at the moment",
+                        "CommunityImpact": "+Missed opportunity for contributing to the professional growth of peers"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "IAS Officer",
+        "Enabled": 1,
+        "Overview": "An IAS Officer is a member of the Indian Administrative Service, responsible for the implementation of government policies, administration, and public service management at various levels. They play a crucial role in governance, as they ensure effective and efficient delivery of services to the public, making them significant for the development of the country.",
+        "Pros & Cons": {
+            "Pros": [
+                "Opportunity to serve the country and make a positive impact.",
+                "Good salary and benefits, including job security.",
+                "Ability to drive policy changes and community improvement initiatives.",
+                "Diverse career growth opportunities within the government."
+            ],
+            "Cons": [
+                "High level of stress and responsibility.",
+                "Long working hours and demanding job expectations.",
+                "Political interference can complicate decision-making.",
+                "Relocation and transfer to different states can be disruptive."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "The career of an IAS Officer fosters immense personal growth through leadership challenges and decisions that enhance critical thinking, problem-solving, and management skills.",
+            "Community Impact": "IAS Officers have a significant impact on the community by implementing development programs, ensuring law and order, and addressing public grievances, leading to overall societal improvement."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "An entry-level IAS Officer is faced with the challenge of managing local resources effectively to meet the needs of the community during a natural disaster.",
+            "DecisionCards": [
+                {
+                    "Option A": "Coordinate with local NGOs to mobilize resources and provide immediate assistance.",
+                    "Outcomes": {
+                        "PersonalImpact": "+3 (Increased leadership skills)",
+                        "CommunityImpact": "+5 (Timely support for affected individuals)"
+                    }
+                },
+                {
+                    "Option B": "Focus on gathering data and creating a long-term plan for resource allocation post-disaster.",
+                    "Outcomes": {
+                        "PersonalImpact": "+2 (Enhanced analytical skills)",
+                        "CommunityImpact": "+4 (Effective long-term recovery strategy)"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As responsibilities increase, an IAS Officer must navigate a complex situation involving a public health crisis, needing to balance immediate public safety with political pressures.",
+            "DecisionCards": [
+                {
+                    "Option A": "Implement quick safety protocols even if it faces political backlash.",
+                    "Outcomes": {
+                        "PersonalImpact": "+4 (Strengthened ethical decision-making skills)",
+                        "CommunityImpact": "+6 (Protection of community health)"
+                    }
+                },
+                {
+                    "Option B": "Negotiate with political leaders to find a balanced approach for public safety and political interests.",
+                    "Outcomes": {
+                        "PersonalImpact": "+3 (Improved negotiation skills)",
+                        "CommunityImpact": "+5 (Compromise leading to a sustainable solution)"
+                    }
+                }
+            ]
+        }
+    ]
+}

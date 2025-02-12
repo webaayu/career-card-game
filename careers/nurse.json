@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "Nurse",
+        "Enabled": 1,
+        "Overview": "Nurses provide essential healthcare services, support patients in their recovery process, and offer emotional and educational support to families. They are integral to patient care, administering medications, monitoring health status, and collaborating with healthcare teams to ensure optimal outcomes.",
+        "Pros & Cons": {
+            "Pros": [
+                "High demand for nursing professionals across various healthcare settings.",
+                "Opportunity to make a significant impact on patients' lives.",
+                "Diverse specializations and career advancement opportunities.",
+                "Flexible working hours with options for full-time or part-time positions."
+            ],
+            "Cons": [
+                "Long and irregular working hours, including nights and weekends.",
+                "Emotional and physical stress due to dealing with sick patients.",
+                "Potential exposure to infectious diseases and hazardous situations.",
+                "High levels of responsibility and the pressure of making critical decisions."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "Working as a nurse fosters resilience, empathy, and critical thinking. Nurses develop strong interpersonal skills and learn to deal with complex healthcare situations, which contribute to their personal development.",
+            "Community Impact": "Nurses play a vital role in promoting health and wellness within communities. They provide education on health issues, contribute to public health initiatives, and ensure access to care for underserved populations."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "As a new nurse, you are managing a busy shift in the emergency department with high patient turnover and limited resources. You must prioritize which patients to attend to first.",
+            "DecisionCards": [
+                {
+                    "Option A": "Focus on triaging patients based on severity, ensuring critical cases receive immediate attention.",
+                    "Outcomes": {
+                        "PersonalImpact": "+1 (Enhanced decision-making skills)",
+                        "CommunityImpact": "+2 (Critical patients receive timely care)"
+                    }
+                },
+                {
+                    "Option B": "Attempt to address all patients equally, risking delays for those who need immediate attention.",
+                    "Outcomes": {
+                        "PersonalImpact": "-1 (Increased stress and potential burnout)",
+                        "CommunityImpact": "-2 (Risk of negative patient outcomes)"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "As an experienced nurse, you are tasked with mentoring a group of new nurses while managing a critical care unit during a particularly chaotic shift with multiple admissions and sudden patient declines.",
+            "DecisionCards": [
+                {
+                    "Option A": "Delegate specific responsibilities to new nurses while overseeing their actions, ensuring quality care and providing real-time feedback.",
+                    "Outcomes": {
+                        "PersonalImpact": "+2 (Leadership skills development)",
+                        "CommunityImpact": "+3 (Improved patient care through effective teamwork)"
+                    }
+                },
+                {
+                    "Option B": "Take full control of the nursing tasks, allowing new nurses to observe but not actively participate, focusing solely on immediate patient needs.",
+                    "Outcomes": {
+                        "PersonalImpact": "-2 (Missed opportunity for mentorship)",
+                        "CommunityImpact": "-1 (New nurses may lack practical experience post-shift)"
+                    }
+                }
+            ]
+        }
+    ]
+}
