@@ -1,0 +1,68 @@
+{
+    "CareerCard": {
+        "Title": "Cybersecurity Analyst",
+        "Overview": "A Cybersecurity Analyst is responsible for protecting an organization's computer systems and networks. They monitor security access, conduct vulnerability assessments, and respond to security breaches. Their role is vital in safeguarding sensitive data and maintaining the integrity of systems in an increasingly digital world.",
+        "Pros & Cons": {
+            "Pros": [
+                "High demand for skilled professionals in the field.",
+                "Opportunity to work in a dynamic and evolving industry.",
+                "Ability to make a significant impact on organizational security.",
+                "Potential for lucrative salaries and career advancement."
+            ],
+            "Cons": [
+                "Require continuous education to keep up with ever-changing technology.",
+                "Can be high-stress, especially during security incidents.",
+                "Need to be on-call or work irregular hours in some roles.",
+                "May deal with legal and ethical dilemmas regarding data privacy."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "This career promotes critical thinking and problem-solving skills, helping professionals to grow in technical expertise and gain confidence in their decision-making abilities.",
+            "Community Impact": "Cybersecurity Analysts play a crucial role in protecting sensitive information and ensuring the privacy of individuals and organizations, fostering a safer digital community."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "An entry-level Cybersecurity Analyst might encounter a phishing email targeting staff. The challenge is to identify it and educate the team.",
+            "DecisionCards": [
+                {
+                    "Option A": "Immediately report the phishing attempt to the security team and hold a training session for staff.",
+                    "Outcomes": {
+                        "PersonalImpact": "+2 (increased knowledge and team recognition)",
+                        "CommunityImpact": "+5 (enhanced security awareness in the organization)"
+                    }
+                },
+                {
+                    "Option B": "Ignore the phishing email, hoping it won't affect the team.",
+                    "Outcomes": {
+                        "PersonalImpact": "-1 (missed learning opportunity)",
+                        "CommunityImpact": "-3 (potential risk of data breach)"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "A more complex situation arises when a significant data breach is detected, and the Cybersecurity Analyst must devise an immediate response plan.",
+            "DecisionCards": [
+                {
+                    "Option A": "Develop a comprehensive incident response plan involving all stakeholders and initiate immediate remediation steps.",
+                    "Outcomes": {
+                        "PersonalImpact": "+5 (strengthened leadership and strategic planning skills)",
+                        "CommunityImpact": "+8 (reduced risk of data loss and restored trust)"
+                    }
+                },
+                {
+                    "Option B": "Attempt to patch the vulnerability without full stakeholder consultation, working in isolation.",
+                    "Outcomes": {
+                        "PersonalImpact": "-2 (limited development of collaboration skills)",
+                        "CommunityImpact": "-6 (increased risk of unresolved issues and potential backlashes)"
+                    }
+                }
+            ]
+        }
+    ]
+}
