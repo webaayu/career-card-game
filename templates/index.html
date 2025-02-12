@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Spin Wheel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles specific to index.html */
+        #wheelCanvas {
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        #jobcardButton {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Card Game</h1>
+        <h3>Click on the Wheel to Select your Jobcard</h3>
+        
+        <!-- Wheel Canvas -->
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+
+        <p id="result"></p>
+        <button id="jobcardButton" style="display: none;">Show Jobcard Details</button>
+    </div>
+
+    <script>
+        // Convert Jinja2 list to a JavaScript array safely
+        let jobs = JSON.parse('{{ jobs | tojson | safe }}');
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
