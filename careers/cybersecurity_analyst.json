@@ -1,6 +1,7 @@
 {
     "CareerCard": {
         "Title": "Cybersecurity Analyst",
+        "Enabled": 0,
         "Overview": "A Cybersecurity Analyst is responsible for protecting an organization's computer systems and networks. They monitor security access, conduct vulnerability assessments, and respond to security breaches. Their role is vital in safeguarding sensitive data and maintaining the integrity of systems in an increasingly digital world.",
         "Pros & Cons": {
             "Pros": [
