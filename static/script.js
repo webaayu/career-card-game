@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const jobcardButton = document.getElementById("jobcardButton"); // Show details button
 
     let spinning = false;
-    let spinSpeed = 0;
+    let spinSpeed = 10;
     let startAngle = 0;
     let selectedJob = "";
     const numSegments = jobs.length;
@@ -19,36 +19,77 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function drawWheel() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Outer Dark Circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius + 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "#222"; // Dark outer circle
+        ctx.fill();
+        ctx.closePath();
+
         for (let i = 0; i < numSegments; i++) {
             let start = startAngle + i * anglePerSegment;
             let end = startAngle + (i + 1) * anglePerSegment;
 
+            // Create a gradient for a glowing effect
+            let gradient = ctx.createLinearGradient(centerX, centerY - radius, centerX, centerY + radius);
+            gradient.addColorStop(0, colors[i % colors.length]);
+            gradient.addColorStop(1, "#ffffff"); // Light fade
+
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.arc(centerX, centerY, radius, start, end);
-            ctx.fillStyle = colors[i % colors.length];
+            ctx.fillStyle = gradient;
             ctx.fill();
+
+
+            // Add a darker border around each segment
+            ctx.strokeStyle = "#000"; 
+            ctx.lineWidth = 3;
             ctx.stroke();
             ctx.closePath();
 
-            // Draw text
+            // Add shadow effect for 3D look
+            ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+            ctx.shadowBlur = 5;
+
+            // Draw text with better styling
             ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate(start + anglePerSegment / 2);
-            ctx.fillStyle = "#000";
-            ctx.font = "16px Arial";
-            ctx.textAlign = "center";
-            ctx.fillText(jobs[i], radius - 30, 5);
+            ctx.translate(centerX, centerY); // Move origin to center
+            ctx.rotate(start + anglePerSegment / 2); // Rotate to segment center
+            ctx.textAlign = "center"; // Align text in the middle
+            ctx.textBaseline = "middle"; // Vertically center text
+            ctx.fillStyle = "#000"; // White text for contrast
+            ctx.font = "bold 18px Arial"; 
+            ctx.fillText(jobs[i], radius * 0.6, 0); // Move text inside the segment
             ctx.restore();
+
         }
 
-        // Draw arrow (indicator)
+        // Reset shadow for other elements
+        ctx.shadowBlur = 0;
+
+        // Draw a center circle for aesthetic appeal
         ctx.beginPath();
-        ctx.moveTo(centerX - 10, centerY - radius - 10);
-        ctx.lineTo(centerX + 10, centerY - radius - 10);
-        ctx.lineTo(centerX, centerY - radius);
+        ctx.arc(centerX, centerY, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFD700"; // Gold color
+        ctx.fill();
+
+        ctx.lineWidth = 2;  // Set border thickness
+        ctx.strokeStyle = "#000"; // Black border
+        ctx.stroke();  // Apply border
+
+        ctx.closePath();
+
+
+        // Draw arrow (indicator) - Made bigger & stylish
+        ctx.beginPath();
+        ctx.moveTo(centerX - 20, centerY - radius - 25);
+        ctx.lineTo(centerX + 20, centerY - radius - 25);
+        ctx.lineTo(centerX, centerY - radius - 5);
         ctx.fillStyle = "red";
         ctx.fill();
+        ctx.closePath();
     }
 
     function spinWheel() {
@@ -81,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let selectedIndex = Math.floor(adjustedAngle / segmentAngle);
         selectedJob = jobs[selectedIndex];
 
-        resultText.innerText = "Selected: " + selectedJob;
+        resultText.innerText = "Congratulations! You've unlocked the " + selectedJob + " Career Card!";
         jobcardButton.style.display = "block"; // Show button
 
         // Send the selected job to Flask
