@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Card Game - Level 1 Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .scenario {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .scenario h2 {
+            color: #444;
+            font-size: 24px;
+        }
+
+        .scenario p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .decision-options {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Style radio button labels */
+        .decision-label {
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Level 1 Challenge</h1>
+        {% if scenarios %}
+            {% set scenario = scenarios[0] %}
+            <div class="scenario">
+                <h2>{{ scenario.Title }}</h2>
+                <p>{{ scenario.Description }}</p>
+                <form action="/level1" method="POST">
+                    <div class="decision-options">
+                        <label class="decision-label">
+                            <input type="radio" name="option" value="0" required>
+                            {{ scenario.DecisionCards[0]["Option A"] }}
+                        </label>
+
+                        <label class="decision-label">
+                            <input type="radio" name="option" value="1" required>
+                            {{ scenario.DecisionCards[1]["Option B"] }}
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-button" >Submit Decision</button>
+                </form>
+            </div>
+        {% else %}
+            <p>No scenarios available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
