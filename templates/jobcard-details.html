@@ -3,24 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobcard Details</title>
+    <title>{{ card['CareerCard']['Title'] }} - Job Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <div class="jobcard-container">
-        <h1>{{ card['CareerCard']['Title'] }}</h1>
-        <h3>Overview</h3>
-        <p>{{ card['CareerCard']['Overview'] }}</p>
+        <div class="jobcard">
+            <h1 class="job-title">{{ card['CareerCard']['Title'] }}</h1>
 
-        <h3>Pros & Cons</h3>
-        <ul>
-            <li><strong>Pros:</strong> {{ card['CareerCard']['Pros'] }}</li>
-            <li><strong>Cons:</strong> {{ card['CareerCard']['Cons'] }}</li>
-        </ul>
+            <section class="overview">
+                <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                <p>{{ card['CareerCard']['Overview'] }}</p>
+            </section>
 
-        <h3>Dual Impact Highlights</h3>
-        <p>{{ card['CareerCard']['DualImpactHighlights'] }}</p>
+            <section class="pros-cons">
+                <h3><i class="fas fa-balance-scale"></i> Pros & Cons</h3>
+                <div class="list-container">
+                    <ul class="pros">
+                        <li><strong><i class="fas fa-thumbs-up"></i> Pros</strong></li>
+                        {% for pro in card['CareerCard']['Pros & Cons']['Pros'] %}
+                            <li>✔ {{ pro }}</li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="cons">
+                        <li><strong><i class="fas fa-thumbs-down"></i> Cons</strong></li>
+                        {% for con in card['CareerCard']['Pros & Cons']['Cons'] %}
+                            <li>✖ {{ con }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
 
+            <section class="dual-impact">
+                <h3><i class="fas fa-users"></i> Dual Impact Highlights</h3>
+                <div class="list-container">
+                    <ul class="impact-list">
+                        <li><strong><i class="fas fa-user-graduate"></i> Personal Growth</strong></li>
+                        <li>✔ {{ card['CareerCard']['Dual Impact Highlights']['Personal Growth'] }}</li>
+                    </ul>
+                    <ul class="impact-list">
+                        <li><strong><i class="fas fa-hand-holding-heart"></i> Community Impact</strong></li>
+                        <li>✔ {{ card['CareerCard']['Dual Impact Highlights']['Community Impact'] }}</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Buttons Container -->
+            <div class="button-container">
+                <button class="back-btn" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </button>
+
+                <button class="proceed-btn" onclick="proceedToLevel()">
+                    <i class="fas fa-arrow-right"></i> Proceed to Level 1
+                </button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function proceedToLevel() {
+            window.location.href = "{{ url_for('level1') }}";  // Update this with your actual Flask route
+        }
+    </script>
+
 </body>
 </html>
