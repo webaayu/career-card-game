@@ -16,25 +16,37 @@
         #result {
             font-size: 22px;
             font-weight: bold;
-            color: #2c3e50;
+            color: rgb(4, 93, 4);
             margin-top: 10px;
         }
         #jobcardButton {
-            display: none;
-            margin-top: 20px;
+            background-color: #6dd5ed;
+            color:black
         }
+        #jobcardButton:hover {
+            background-color: green;
+            color:white
+        }
+        h3{
+            color: #2193b0;
+        }
+        h2{
+            color:orangered
+        }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Career Card Game</h1>
-        <h3>Click on the Wheel to Select your Jobcard</h3>
+        <h2>Ready to discover your Dream Career?</h2>
+        <h3>Spin the wheel and find out!</h3>
         
         <!-- Wheel Canvas -->
         <canvas id="wheelCanvas" width="500" height="500"></canvas>
 
         <p id="result"></p>
-        <button id="jobcardButton" style="display: none;">Show Jobcard Details</button>
+        <button class=show-jobcard-btn id="jobcardButton" style="display: none;"><b>Show Jobcard Details</b></button>
     </div>
 
     <script>
