@@ -105,6 +105,32 @@ def jobcard():
 
     return render_template("jobcard-details.html", card=selected_card)
 
+# Level 1 scenario page
+@app.route('/level1', methods=['GET', 'POST'])
+def level1():
+    selected_card = json.loads(session.get('selected_card', '{}'))
+    if not selected_card:
+        return redirect(url_for('index'))
+    scenarios = selected_card.get('Level1ScenarioCards', [])
+    if request.method == 'POST':
+        selected_index = int(request.form.get('option'))
+        # Simple scoring: Option A -> 10 points; Option B -> 5 points
+        score = 10 if selected_index == 0 else 5
+        session['scenario_result'] = json.dumps({
+            'scenario': scenarios[0],  # For simplicity, using the first scenario
+            'selected_option_index': selected_index,
+            'score': score
+        })
+        return redirect(url_for('level1_result'))
+    return render_template('level-1.html', scenarios=scenarios)
+
+@app.route('/level1_result')
+def level1_result():
+    scenario_result = json.loads(session.get('scenario_result', '{}'))
+    if not scenario_result:
+        return redirect(url_for('level1'))
+    return render_template('level1-result.html', result=scenario_result)
+
 # 🚀 Run Flask App
 if __name__ == "__main__":
     app.run(debug=True)
