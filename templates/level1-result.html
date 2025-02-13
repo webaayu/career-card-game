@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Card Game - Level 1 Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        .result {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .result h2 {
+            color: #007bff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .result p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Selected Option Section */
+        .option-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        .option-box strong {
+            font-size: 20px;
+            color: #01579b;
+        }
+
+        /* Outcome Section */
+        .outcome-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .outcome-box h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .outcome-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: #e68900;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .result p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Level 1 Result</h1>
+        <div class="result">
+            {% set res = result %}
+            <h2>{{ res.scenario.Title }}</h2>
+            <p>{{ res.scenario.Description }}</p>
+
+            <!-- Selected Option Section -->
+            <div class="option-box">
+                <strong>Selected Option:</strong> 
+                {% if res.selected_option_index == 0 %}
+                    <p>🟢 {{ res.scenario.DecisionCards[0]["Option A"] }}</p>
+                {% else %}
+                    <p>🔵 {{ res.scenario.DecisionCards[1]["Option B"] }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Outcome Section -->
+            <div class="outcome-box">
+                <h3>🌟 Outcome:</h3><br>
+                {% if res.selected_option_index == 0 %}
+                    <p class="outcome-text">🟢 Personal Impact: {{ res.scenario.DecisionCards[0]["Outcomes"]["PersonalImpact"] }}</p>
+                    <p class="outcome-text">🔵 Community Impact: {{ res.scenario.DecisionCards[0]["Outcomes"]["CommunityImpact"] }}</p>
+                {% else %}
+                    <p class="outcome-text">🟢 Personal Impact: {{ res.scenario.DecisionCards[1]["Outcomes"]["PersonalImpact"] }}</p>
+                    <p class="outcome-text">🔵 Community Impact: {{ res.scenario.DecisionCards[1]["Outcomes"]["CommunityImpact"] }}</p>
+                {% endif %}
+            </div>
+
+            <p class="score"><strong>Score:</strong> {{ res.score }}</p>
+        </div>
+        <button class="back-button" onclick="window.location.href='/'">Back to Spin Wheel</button>
+    </div>
+</body>
+</html>
