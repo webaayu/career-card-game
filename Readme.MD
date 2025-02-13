@@ -4,4 +4,4 @@
 
 3. Run app.py
 
-4. The templates folder contains `page1.html`, `page2.html`,`page3.html`
+4. The templates folder contains `index.html`, `jobcard-details.html`,`level-1.html`,`level1-result.html`
