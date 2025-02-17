@@ -7,36 +7,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="game-body">
+
     <div class="jobcard-container">
         <div class="jobcard">
             <h1 class="job-title">{{ card['CareerCard']['Title'] }}</h1>
 
             <section class="overview">
-                <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                <h2><i class="fas fa-info-circle"></i> Overview</h2>
                 <p>{{ card['CareerCard']['Overview'] }}</p>
             </section>
 
             <section class="pros-cons">
-                <h3><i class="fas fa-balance-scale"></i> Pros & Cons</h3>
+                <h2><i class="fas fa-balance-scale"></i> Benefits and Challenges </h2>
                 <div class="list-container">
                     <ul class="pros">
-                        <li><strong><i class="fas fa-thumbs-up"></i> Pros</strong></li>
-                        {% for pro in card['CareerCard']['Pros & Cons']['Pros'] %}
+                        <li><strong><i class="fas fa-thumbs-up"></i> Benefits </strong></li>
+                        {% for pro in card['CareerCard']['Benefits and Challenges']['Benefits'] %}
                             <li>✔ {{ pro }}</li>
                         {% endfor %}
                     </ul>
                     <ul class="cons">
-                        <li><strong><i class="fas fa-thumbs-down"></i> Cons</strong></li>
-                        {% for con in card['CareerCard']['Pros & Cons']['Cons'] %}
-                            <li>✖ {{ con }}</li>
+                        <li><strong><i class="fas fa-thumbs-down"></i> Job Challenges </strong></li>
+                        {% for con in card['CareerCard']['Benefits and Challenges']['Job Challenges'] %}
+                            <li>✔ {{ con }}</li>
                         {% endfor %}
                     </ul>
                 </div>
             </section>
 
             <section class="dual-impact">
-                <h3><i class="fas fa-users"></i> Dual Impact Highlights</h3>
+                <h2><i class="fas fa-users"></i> Dual Impact Highlights</h2>
                 <div class="list-container">
                     <ul class="impact-list">
                         <li><strong><i class="fas fa-user-graduate"></i> Personal Growth</strong></li>
