@@ -11,11 +11,13 @@ api_key = os.getenv("OPENAI_API_KEY")
 # Initialize OpenAI client
 client = OpenAI(api_key=api_key)
 
-# Ensure the careers directory exists
-careers_dir = "careers"
-os.makedirs(careers_dir, exist_ok=True)
+# Define the base careers directory
+base_careers_dir = "careers"
 
-def generate_career_profile(job_profile_name):
+# Ensure the base careers directory exists
+os.makedirs(base_careers_dir, exist_ok=True)
+
+def generate_career_profile(job_profile_name, job_category):
     # Define the prompt
     prompt = f"""
     Generate a JSON object for a career profile with the following structure:
@@ -103,8 +105,12 @@ def generate_career_profile(job_profile_name):
         try:
             career_profile = json.loads(content)  # Convert string to JSON
 
+            # Define the category-specific directory path
+            category_dir = os.path.join(base_careers_dir, job_category)
+            os.makedirs(category_dir, exist_ok=True)  # Ensure the category directory exists
+
             # Define the file path
-            file_path = os.path.join(careers_dir, f"{job_profile_name.replace(' ', '_').lower()}.json")
+            file_path = os.path.join(category_dir, f"{job_profile_name.replace(' ', '_').lower()}.json")
 
             # Save the JSON to a file
             with open(file_path, "w", encoding="utf-8") as f:
@@ -120,7 +126,14 @@ def generate_career_profile(job_profile_name):
 # Define the Gradio interface
 iface = gr.Interface(
     fn=generate_career_profile,
-    inputs=gr.Textbox(label="Job Profile Name"),
+    inputs=[
+        gr.Textbox(label="Job Profile Name"),
+        gr.Dropdown(
+            label="Job Category",
+            choices=["Education", "Technology", "Healthcare", "Hospitality", "Finance", "Marketing", "Engineering", "Arts and Design", "Legal", "Science and Research"],
+            type="value",
+        ),
+    ],
     outputs=gr.Textbox(label="Status"),
     live=False
 )
