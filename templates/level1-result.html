@@ -123,7 +123,7 @@
         }
     </style>
 </head>
-<body>
+<body class="game-body">
     <div class="container">
         <h1>Level 1 Result</h1>
         <div class="result">
@@ -155,7 +155,15 @@
 
             <p class="score"><strong>Score:</strong> {{ res.score }}</p>
         </div>
-        <button class="back-button" onclick="window.location.href='/'">Back to Spin Wheel</button>
+        <button class="back-button" onclick="window.location.href='/spinwheel'">Back to Spin Wheel</button>
+        <button class="proceed-btn" onclick="proceedToLevel2()">
+            <i class="fas fa-arrow-right"></i> Proceed to Level 2
+        </button>
     </div>
+    <script>
+        function proceedToLevel2() {
+            window.location.href = "{{ url_for('level2') }}";  // Update this with your actual Flask route
+        }
+    </script>
 </body>
 </html>
