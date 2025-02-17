@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Spin Wheel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        /* Global Styles */
+.game-body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: auto;
+}
+
+/* Centered Heading */
+.heading {
+    margin-top: 20px;
+}
+
+.heading h1 {
+    /*font-size: 2.5em;*/
+    color: black;
+}
+
+.heading h2 {
+    /*font-size: 1.8em;*/
+    color: orangered;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Left Side: Spin Wheel */
+.left-side {
+    width: 48%;
+    border-radius: 5%;
+    background:white
+}
+
+.left-side h3 {
+    /*font-size: 1.5em;*/
+    color: darkblue;
+
+}
+
+#wheelCanvas {
+    border: 3px solid black;
+    border-radius: 50%;
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+#result {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(4, 93, 4);
+    margin-top: 10px;
+}
+
+#jobcardButton {
+    background-color: #6dd5ed;
+    color: black;
+    margin-top: 10px;
+}
+
+#jobcardButton:hover {
+    background-color: green;
+    color: white;
+}
+
+/* Right Side: Career Alternatives */
+.right-side {
+    width: 48%;
+    border-radius: 5%;
+    background:white;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.right-side h3 {
+    /*font-size: 1.5em;*/
+    color: darkblue;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    font-weight:bold;
+    color:orangered
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color:white;
+    background-color: #6dd5ed;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.right-side img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body class="game-body">
+    <!-- Centered Heading -->
+    <div class="heading">
+        <h1>Welcome, {{ username }}!</h1>
+        <h2>Ready to discover your Dream Career?</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Side: Spin Wheel -->
+        <div class="left-side">
+            <h3>Spin the wheel and find out!</h3>
+            <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            <p id="result"></p>
+            <button class="show-jobcard-btn" id="jobcardButton" style="display: none;"><b>Show Jobcard Details</b></button>
+        </div>
+
+        <!-- Right Side: Career Alternatives -->
+        <div class="right-side">
+            <h3>Not interested in spinning the wheel? </h3>
+            <h3 style="color: darkgreen;">Here are some career alternatives.</h3>
+            <div class="dropdown">
+                <a>Careers▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Healthcare</a>
+                    <a href="#">Civil Services</a>
+                    <a href="#">Education</a>
+                    <a href="#">Engineering</a>
+                </div>
+            </div>
+            <div>
+                <br>
+                <br>
+            <img src="{{ url_for('static', filename='images/career1.jpg') }}">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Convert Jinja2 list to a JavaScript array safely
+        let jobs = JSON.parse('{{ jobs | tojson | safe }}');
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
