@@ -3,14 +3,14 @@
         "Title": "Doctor",
         "Enabled": 1,
         "Overview": "Doctors are medical professionals responsible for diagnosing and treating illnesses and injuries. They conduct examinations, prescribe medications, and provide preventive care to ensure the health and well-being of their patients. Their role is crucial not only for individual health but also for the public health of communities at large.",
-        "Pros & Cons": {
-            "Pros": [
+        "Benefits and Challenges": {
+            "Benefits": [
                 "High earning potential.",
                 "Ability to make a significant difference in patients' lives.",
                 "Continuous learning and professional development.",
                 "Strong job security due to the ongoing need for medical professionals."
             ],
-            "Cons": [
+            "Job Challenges": [
                 "Long and rigorous education and training requirements.",
                 "High levels of stress and responsibility.",
                 "Irregular hours and long shifts.",
@@ -30,15 +30,15 @@
                 {
                     "Option A": "Take the time to thoroughly review each patient's history before appointments.",
                     "Outcomes": {
-                        "PersonalImpact": "+Knowledge gained through preparation.",
-                        "CommunityImpact": "+Greater accuracy in diagnosis and treatment."
+                        "PersonalImpact": "+4 (Knowledge gained through preparation)",
+                        "CommunityImpact": "+6 (Greater accuracy in diagnosis and treatment)"
                     }
                 },
                 {
                     "Option B": "Quickly move from one patient to the next to keep up with the schedule.",
                     "Outcomes": {
-                        "PersonalImpact": "+Time management skills improved.",
-                        "CommunityImpact": "+Increased number of patients seen, potentially leading to faster care."
+                        "PersonalImpact": "+2 (Time management skills improved)",
+                        "CommunityImpact": "+3 (Increased number of patients seen, potentially leading to faster care)"
                     }
                 }
             ]
@@ -52,15 +52,15 @@
                 {
                     "Option A": "Delegate responsibilities to team members based on their strengths.",
                     "Outcomes": {
-                        "PersonalImpact": "+Demonstrated leadership and collaboration skills.",
-                        "CommunityImpact": "+Improved efficiency in patient care during critical moments."
+                        "PersonalImpact": "+3 (Demonstrated leadership and collaboration skills)",
+                        "CommunityImpact": "+5 (Improved efficiency in patient care during critical moments)"
                     }
                 },
                 {
                     "Option B": "Attempt to manage all cases personally to ensure quality of care.",
                     "Outcomes": {
-                        "PersonalImpact": "+Sense of control and thoroughness.",
-                        "CommunityImpact": "+Potential for not managing time effectively, risking delays in care."
+                        "PersonalImpact": "-4 (Sense of control and thoroughness)",
+                        "CommunityImpact": "-5 (Potential for not managing time effectively, risking delays in care)"
                     }
                 }
             ]
