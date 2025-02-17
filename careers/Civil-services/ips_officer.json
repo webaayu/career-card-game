@@ -1,0 +1,69 @@
+{
+    "CareerCard": {
+        "Title": "IPS Officer",
+        "Enabled": 1,
+        "Overview": "An IPS Officer is a member of the Indian Police Service, responsible for maintaining law and order, ensuring public safety, and preventing crime. They play a critical role in enforcing the law and building public trust.",
+        "Benefits and Challenges": {
+            "Benefits": [
+                "Opportunity to serve and protect the community.",
+                "Job stability with attractive benefits.",
+                "Challenging and dynamic work environment.",
+                "Ability to make a significant impact on public safety and justice."
+            ],
+            "Job Challenges": [
+                "High risk and exposure to danger.",
+                "Intense public scrutiny and pressure.",
+                "Irregular working hours and shift duties.",
+                "Emotional stress from dealing with critical incidents."
+            ]
+        },
+        "Dual Impact Highlights": {
+            "Personal Growth": "IPS Officers develop strong leadership, crisis management, and decision-making skills while working under pressure.",
+            "Community Impact": "They contribute to public safety by maintaining law and order, which enhances community trust and overall societal well-being."
+        }
+    },
+    "Level1ScenarioCards": [
+        {
+            "Title": "Initial Challenge 1",
+            "Description": "An entry-level IPS Officer is confronted with a local protest that threatens public order. The officer must decide how to handle the situation while ensuring safety and maintaining community trust.",
+            "DecisionCards": [
+                {
+                    "Option A": "Engage in dialogue with protest organizers to address their concerns and de-escalate tensions.",
+                    "Outcomes": {
+                        "PersonalImpact": "+3 (Enhanced conflict resolution skills)",
+                        "CommunityImpact": "+5 (Maintained public peace)"
+                    }
+                },
+                {
+                    "Option B": "Deploy a strategic police presence to control the situation and ensure public safety.",
+                    "Outcomes": {
+                        "PersonalImpact": "+2 (Increased decisiveness)",
+                        "CommunityImpact": "+4 (Effective control of disorder)"
+                    }
+                }
+            ]
+        }
+    ],
+    "Level2ScenarioCards": [
+        {
+            "Title": "Advanced Challenge 1",
+            "Description": "Facing a surge in criminal activities, an IPS Officer must balance strict enforcement with maintaining community relations during a prolonged crime wave.",
+            "DecisionCards": [
+                {
+                    "Option A": "Implement community policing initiatives to build trust while enforcing the law strictly.",
+                    "Outcomes": {
+                        "PersonalImpact": "+4 (Improved community engagement)",
+                        "CommunityImpact": "+6 (Reduced crime rates)"
+                    }
+                },
+                {
+                    "Option B": "Adopt a zero-tolerance approach to deter criminal activity, even if it strains community relations.",
+                    "Outcomes": {
+                        "PersonalImpact": "+3 (Strengthened enforcement skills)",
+                        "CommunityImpact": "+5 (Short-term crime reduction)"
+                    }
+                }
+            ]
+        }
+    ]
+}
